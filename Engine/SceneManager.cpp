@@ -20,7 +20,7 @@ void SceneManager::Initialize()
 	//最初のシーンを準備
 	currentSceneID_ = SCENE_ID_TEST;
 	nextSceneID_ = currentSceneID_;
-	Instantiate<TestScene>(this);
+	Instantiate<PlayScene>(this);
 }
 
 //更新
