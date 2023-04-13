@@ -4,7 +4,7 @@
 //◆◆◆を管理するクラス
 class Player : public GameObject
 {
-
+    int hModel_;    //モデル番号
 public:
     //コンストラクタ
     Player(GameObject* parent);
