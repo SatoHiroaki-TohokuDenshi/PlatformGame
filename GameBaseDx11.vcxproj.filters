@@ -24,6 +24,15 @@
       <UniqueIdentifier>{47a6a3f5-8cfd-436b-8d58-beccd108f3f3}</UniqueIdentifier>
       <Extensions>hlsl</Extensions>
     </Filter>
+    <Filter Include="03Scene">
+      <UniqueIdentifier>{c8b45c6d-f0f8-4bae-9108-0f0ebda41532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03Scene\01Title">
+      <UniqueIdentifier>{843d83c4-146f-4b0c-8cc9-75617b62c590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03Scene\02Play">
+      <UniqueIdentifier>{cd7567f1-f215-4fe6-826f-bf4386f76f9d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -80,7 +89,6 @@
     <ClCompile Include="Engine\Transform.cpp">
       <Filter>01Engine\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Engine\Audio.cpp">
       <Filter>01Engine\ResourceManager</Filter>
     </ClCompile>
@@ -95,6 +103,24 @@
     </ClCompile>
     <ClCompile Include="Engine\VFX.cpp">
       <Filter>01Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>03Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>03Scene\01Title</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>03Scene\02Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>03Scene\02Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>03Scene\02Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>03Scene\02Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +178,6 @@
     <ClInclude Include="Engine\Transform.h">
       <Filter>01Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="TestScene.h" />
     <ClInclude Include="Engine\Audio.h">
       <Filter>01Engine\ResourceManager</Filter>
     </ClInclude>
@@ -167,6 +192,24 @@
     </ClInclude>
     <ClInclude Include="Engine\VFX.h">
       <Filter>01Engine\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>03Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>03Scene\01Title</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>03Scene\02Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>03Scene\02Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>03Scene\02Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>03Scene\02Play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
