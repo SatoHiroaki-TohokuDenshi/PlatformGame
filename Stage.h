@@ -1,10 +1,20 @@
 #pragma once
 #include "Engine/GameObject.h"
 
+enum
+{
+    TYPE_FLOOR,
+    TYPE_MAX,
+};
+
+
 //ステージを管理するクラス
 class Stage : public GameObject
 {
-    int hModel_;    //モデル番号
+    int hModel_[TYPE_MAX];    //モデル番号
+    int** table_;             //マップデータ
+    int mapWidth_;            //マップの幅
+    int mapHeight_;           //マップの高さ
 public:
     //コンストラクタ
     Stage(GameObject* parent);
