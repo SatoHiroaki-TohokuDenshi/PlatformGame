@@ -5,6 +5,7 @@
 //プレイシーンを管理するクラス
 class PlayScene : public GameObject
 {
+	XMFLOAT3 camPos_;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）

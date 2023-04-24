@@ -38,7 +38,6 @@ void Stage::Initialize()
 {
     const char* fileName[] = {
         "Floor.fbx" ,
-        "Wall.fbx"
     };
     //モデルデータのロード
     for (int i = 0; i < TYPE_MAX; i++)

@@ -1,5 +1,6 @@
 #include "Player.h"
 
+#include "Engine/Input.h"
 #include "Engine/Model.h"
 
 //コンストラクタ
@@ -24,6 +25,16 @@ void Player::Initialize()
 //更新
 void Player::Update()
 {
+    //Dキーが押されていたら
+    if (Input::IsKey(DIK_D))
+    {
+        transform_.position_.x += 0.1f;
+    }
+    //Aキーが押されていたら
+    if (Input::IsKey(DIK_A))
+    {
+        transform_.position_.x -= 0.1f;
+    }
 }
 
 //描画

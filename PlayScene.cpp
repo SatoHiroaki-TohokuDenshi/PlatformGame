@@ -7,7 +7,7 @@
 
 //コンストラクタ
 PlayScene::PlayScene(GameObject* parent)
-	: GameObject(parent, "PlayScene")
+	: GameObject(parent, "PlayScene"), camPos_(XMFLOAT3(0.0f, 0.0f, 0.0f))
 {
 }
 
@@ -17,13 +17,23 @@ void PlayScene::Initialize()
 	Instantiate<Stage>(this);
 	Instantiate<Player>(this);
 
+	Player* pPlayer = (Player*)FindObject("Player");
+	camPos_ = pPlayer->GetPosition();
+	Camera::SetTarget(camPos_);
+	camPos_.z = -10;
 	Camera::SetPosition(XMFLOAT3(0, 3, -10));
-	Camera::SetTarget(XMFLOAT3(0, 3, 0));
 }
 
 //更新
 void PlayScene::Update()
 {
+	Player* pPlayer = (Player*)FindObject("Player");
+	camPos_ = pPlayer->GetPosition();
+
+	Camera::SetTarget(camPos_);
+	camPos_.z = -10;
+	Camera::SetPosition(camPos_);
+
 }
 
 //描画
