@@ -5,7 +5,7 @@
 
 //コンストラクタ
 Player::Player(GameObject* parent)
-    :GameObject(parent, "Player"), hModel_(-1)
+    :GameObject(parent, "Player"), hModel_(-1), jumpflag_(true), jump_(0.0f)
 {
 }
 
@@ -34,6 +34,21 @@ void Player::Update()
     if (Input::IsKey(DIK_A))
     {
         transform_.position_.x -= 0.1f;
+    }
+
+    if (transform_.position_.y < 0) {
+        jump_ = 0.0f;
+        transform_.position_.y = 0;
+        jumpflag_ = true;
+    }
+    if (Input::IsKeyDown(DIK_SPACE) && jumpflag_) {
+        jump_ = 1.0f;
+        if (transform_.position_.y != 0)
+            jumpflag_ = false;
+    }
+    if (jump_ != 0) {
+        transform_.position_.y += jump_;
+        jump_ -= 0.1f;
     }
 }
 

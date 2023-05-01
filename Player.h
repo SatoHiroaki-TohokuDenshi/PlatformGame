@@ -5,6 +5,8 @@
 class Player : public GameObject
 {
     int hModel_;    //モデル番号
+    bool jumpflag_;
+    float jump_;
 public:
     //コンストラクタ
     Player(GameObject* parent);
