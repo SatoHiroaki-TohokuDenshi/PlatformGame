@@ -19,6 +19,7 @@ void PlayScene::Initialize()
 
 	Player* pPlayer = (Player*)FindObject("Player");
 	camPos_ = pPlayer->GetPosition();
+	camPos_.y += 3;
 	Camera::SetTarget(camPos_);
 	camPos_.z = -10;
 	Camera::SetPosition(XMFLOAT3(0, 3, -10));
@@ -30,6 +31,7 @@ void PlayScene::Update()
 	Player* pPlayer = (Player*)FindObject("Player");
 	camPos_ = pPlayer->GetPosition();
 
+	camPos_.y += 3;
 	Camera::SetTarget(camPos_);
 	camPos_.z = -10;
 	Camera::SetPosition(camPos_);
