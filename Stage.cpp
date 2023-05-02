@@ -8,7 +8,7 @@ Stage::Stage(GameObject* parent)
     table_(nullptr), mapHeight_(0), mapWidth_(0)
 {
     CsvReader csv;
-    csv.Load("map.csv");
+    csv.Load("FloorData.csv");
 
     mapHeight_ = csv.GetHeight();
     mapWidth_ = csv.GetWidth();
@@ -69,8 +69,10 @@ void Stage::Draw()
 
             type = table_[x][z];
 
-            Model::SetTransform(hModel_[type], blockTrans);
-            Model::Draw(hModel_[type]);
+            if (type == 0) {
+                Model::SetTransform(hModel_[type], blockTrans);
+                Model::Draw(hModel_[type]);
+            }
         }
     }
 }
