@@ -21,9 +21,9 @@ Stage::Stage(GameObject* parent)
 
     for (int x = 0; x < mapHeight_; x++)
     {
-        for (int z = 0; z < mapWidth_; z++)
+        for (int y = 0; y < mapWidth_; y++)
         {
-            table_[x][(mapWidth_ - 1) - z] = csv.GetValue(x, z);
+            table_[x][(mapWidth_ - 1) - y] = csv.GetValue(x, y);
         }
     }
 }
@@ -37,8 +37,9 @@ Stage::~Stage()
 void Stage::Initialize()
 {
     const char* fileName[] = {
-        "Hole.fbx",
+        "Air.fbx",
         "Floor.fbx" ,
+        "Hole.fbx",
     };
     //モデルデータのロード
     for (int i = 0; i < TYPE_MAX; i++)
@@ -63,12 +64,12 @@ void Stage::Draw()
 
     for (int x = 0; x < mapHeight_; x++)
     {
-        for (int z = 0; z < mapWidth_; z++)
+        for (int y = 0; y < mapWidth_; y++)
         {
             blockTrans.position_.x = x;
-            blockTrans.position_.z = z;
+            blockTrans.position_.y = y;
 
-            type = table_[x][z];
+            type = table_[x][y];
 
 
             Model::SetTransform(hModel_[type], blockTrans);
