@@ -5,6 +5,7 @@
 class Player : public GameObject
 {
     int hModel_;    //ƒ‚ƒfƒ‹”Ô†
+    int frame_;
     bool jumpflag_;
     float jump_;
 public:

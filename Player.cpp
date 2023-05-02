@@ -5,7 +5,7 @@
 
 //コンストラクタ
 Player::Player(GameObject* parent)
-    :GameObject(parent, "Player"), hModel_(-1), jumpflag_(true), jump_(0.0f)
+    :GameObject(parent, "Player"), hModel_(-1), frame_(1), jumpflag_(true), jump_(0.0f)
 {
 }
 
@@ -36,6 +36,7 @@ void Player::Update()
         transform_.position_.x -= 0.1f;
     }
 
+
     if (transform_.position_.y < 0) {
         jump_ = 0.0f;
         transform_.position_.y = 0;
@@ -46,9 +47,18 @@ void Player::Update()
         if (transform_.position_.y != 0)
             jumpflag_ = false;
     }
-    if (jump_ != 0) {
-        transform_.position_.y += jump_;
-        jump_ -= 0.1f;
+    if (frame_ % 2 == 0) {
+        if (jump_ != 0) {
+            transform_.position_.y += jump_;
+            jump_ -= 0.1f;
+        }
+    }
+
+    if (frame_ == 10000) {
+        frame_ = 1;
+    }
+    else {
+        frame_++;
     }
 }
 
