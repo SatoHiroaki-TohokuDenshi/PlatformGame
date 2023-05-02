@@ -3,7 +3,8 @@
 
 enum
 {
-    TYPE_FLOOR = 0,
+    TYPE_HOLE = 0,
+    TYPE_FLOOR,
     TYPE_MAX,
 };
 

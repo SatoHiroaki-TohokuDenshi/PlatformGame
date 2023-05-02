@@ -42,7 +42,7 @@ void Player::Update()
         jumpflag_ = true;
     }
     if (Input::IsKeyDown(DIK_SPACE) && jumpflag_) {
-        jump_ = 1.0f;
+        jump_ = 0.8f;
         if (transform_.position_.y != 0)
             jumpflag_ = false;
     }

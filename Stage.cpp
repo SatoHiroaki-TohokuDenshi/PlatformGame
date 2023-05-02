@@ -37,6 +37,7 @@ Stage::~Stage()
 void Stage::Initialize()
 {
     const char* fileName[] = {
+        "Hole.fbx",
         "Floor.fbx" ,
     };
     //モデルデータのロード
@@ -69,10 +70,10 @@ void Stage::Draw()
 
             type = table_[x][z];
 
-            if (type == 0) {
-                Model::SetTransform(hModel_[type], blockTrans);
-                Model::Draw(hModel_[type]);
-            }
+
+            Model::SetTransform(hModel_[type], blockTrans);
+            Model::Draw(hModel_[type]);
+
         }
     }
 }
