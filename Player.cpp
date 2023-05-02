@@ -25,35 +25,38 @@ void Player::Initialize()
 //更新
 void Player::Update()
 {
-    //Dキーが押されていたら
+    // 右移動（Dキー）
     if (Input::IsKey(DIK_D))
     {
         transform_.position_.x += 0.1f;
     }
-    //Aキーが押されていたら
+    // 左移動（Aキー）
     if (Input::IsKey(DIK_A))
     {
         transform_.position_.x -= 0.1f;
     }
 
 
-    if (transform_.position_.y < 0) {
-        jump_ = 0.0f;
-        transform_.position_.y = 0;
-        jumpflag_ = true;
-    }
+    // ジャンプの入力処理
     if (Input::IsKeyDown(DIK_SPACE) && jumpflag_) {
         jump_ = 0.8f;
         if (transform_.position_.y != 0)
             jumpflag_ = false;
     }
+    // ジャンプの移動処理
     if (frame_ % 2 == 0) {
         if (jump_ != 0) {
             transform_.position_.y += jump_;
             jump_ -= 0.1f;
         }
     }
-
+    // ジャンプの着地処理
+    if (transform_.position_.y < 0) {
+        jump_ = 0.0f;
+        transform_.position_.y = 0;
+        jumpflag_ = true;
+    }
+    // ジャンプの各種処理のディレイ
     if (frame_ == 10000) {
         frame_ = 1;
     }
