@@ -39,7 +39,7 @@ void Stage::Initialize()
     const char* fileName[] = {
         "NULL.fbx",
         "Air.fbx",
-        "Floor.fbx" ,
+        "Floor_v2.fbx" ,
         "Hole.fbx",
     };
     //モデルデータのロード
