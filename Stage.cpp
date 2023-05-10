@@ -89,3 +89,22 @@ void Stage::Release()
     }
     delete[] table_;
 }
+
+bool Stage::IsFloor(int x, int y)
+{
+    if (x < 0)
+        x = 0;
+    if (x > mapHeight_)
+        x = mapHeight_;
+    if (y < 0)
+        y = 0;
+    if (y > mapWidth_)
+        y = mapWidth_;
+
+    int type = table_[x][y];
+    if (type == TYPE_HOLE ||
+        type == TYPE_AIR)
+        return false;
+    else
+        return true;
+}

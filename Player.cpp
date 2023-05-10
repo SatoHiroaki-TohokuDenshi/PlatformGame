@@ -1,5 +1,6 @@
 #include "Player.h"
 
+#include "Stage.h"
 #include "Engine/Input.h"
 #include "Engine/Model.h"
 
@@ -25,6 +26,9 @@ void Player::Initialize()
 //更新
 void Player::Update()
 {
+    if (Input::IsKeyDown(DIK_R))
+        transform_.position_ = XMFLOAT3(0, 0, 0);
+
     // 右移動（Dキー）
     if (Input::IsKey(DIK_D))
     {
@@ -36,7 +40,29 @@ void Player::Update()
         transform_.position_.x -= 0.1f;
     }
 
+    // ジャンプ処理
+    {
+        if (Input::IsKeyDown(DIK_SPACE)) {
+            jump_ = 0.8f;
+        }
 
+        Stage* pStage = (Stage*)FindObject("Stage");
+        if (pStage->IsFloor(transform_.position_.x, transform_.position_.y)) {
+            jump_ = 0.0f;
+        }
+
+        if (frame_ % 2 == 0) {
+            transform_.position_.y += jump_;
+            jump_ -= 0.1f;
+        }
+
+        if (frame_ == 10000)
+            frame_ = 1;
+        else
+            frame_++;
+    }
+
+#if 0
     // ジャンプの入力処理
     if (Input::IsKeyDown(DIK_SPACE) && jumpflag_) {
         jump_ = 0.8f;
@@ -63,6 +89,7 @@ void Player::Update()
     else {
         frame_++;
     }
+#endif // 0
 }
 
 //描画

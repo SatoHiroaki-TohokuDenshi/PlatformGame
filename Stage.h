@@ -36,4 +36,7 @@ public:
 
     //開放
     void Release() override;
+
+    //当たり判定用のデータ取得関数
+    bool IsFloor(int x, int y);
 };
